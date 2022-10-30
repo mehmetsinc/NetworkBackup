@@ -1,0 +1,89 @@
+{% extends 'pages/base/layout.html' %}
+
+{% block title %}
+    {{ get_dell_switch.hostname }} Güncelle
+{% endblock %}
+
+{% block content %}
+    <section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-2">
+                    <div class="card-header">
+                            {{ get_dell_switch.hostname }} Güncelle
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content ">
+
+                            <form method="post" enctype="multipart/form-data" >
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Hostname</label>
+                                            <input maxlength="150" required name="hostname" value="{{ get_dell_switch.hostname }}" class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Model</label>
+                                            <input maxlength="150" name="model" value="{{ get_dell_switch.model }}" class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ip Adres</label>
+                                            <input maxlength="150" required name="address" value="{{ get_dell_switch.address }}" class="form-control"/>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+
+                                         <div class="form-group">
+                                            <label>Seri No</label>
+                                              <input maxlength="150" name="serial" value="{{ get_dell_switch.serial }}" class="form-control"/>
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Versiyon</label>
+                                              <input maxlength="150" name="version" value="{{ get_dell_switch.version }}" class="form-control"/>
+                                        </div>
+
+                                          <div class="form-group">
+                                            <label>Sistem Kullanıcı</label>
+                                            <select class="form-control select2"  required name="systemuser" style="width: 100%">
+
+                                                {% for item in get_system_users %}
+                                                    {% if item.id == get_dell_switch.systemuser.id %}
+                                                          <option value="{{ item.id }}" selected>{{ item.name }}</option>
+                                                    {% else %}
+                                                          <option value="{{ item.id }}">{{ item.name }}</option>
+                                                    {% endif %}
+
+                                                {% endfor %}
+                                            </select>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <button type="submit" class="btn btn-primary btn-sm"><span class="fas fa-save"></span> Kaydet </button>
+
+                                </div>
+
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

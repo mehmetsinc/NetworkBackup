@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>{% block title %}
+
+   {% endblock %}</title>
+    {% load static %}
+    {% include 'pages/components/css.html' %}
+
+
+</head>
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+
+ {% include 'pages/components/navbar.html' %}
+ {% include 'pages/components/sidebar.html' %}
+
+  <div class="content-wrapper">
+    {% block content %}
+
+   {% endblock %}
+
+  </div>
+   </div>
+  <aside class="control-sidebar control-sidebar-dark">
+
+  </aside>
+ {% include 'pages/components/js.html' %}
+</body>
+</html>

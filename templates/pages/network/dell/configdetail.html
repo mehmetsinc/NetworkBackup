@@ -1,0 +1,46 @@
+{% extends 'pages/base/layout.html' %}
+
+{% block title %}
+{{ get_dell_switch_config.name }}
+{% endblock %}
+
+{% block content %}
+    <section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-2">
+                    <div class="card-header">
+                        {{ get_dell_switch_config.name }}
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content ">
+
+                              <form method="post" enctype="multipart/form-data">
+                                  {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                          <div class="form-group">
+                                             <label>Config</label>
+                                              <textarea style="height: 500px" class="form-control">{{ get_dell_switch_config.text }} </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

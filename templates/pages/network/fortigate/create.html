@@ -1,0 +1,83 @@
+{% extends 'pages/base/layout.html' %}
+
+{% block title %}
+Fortigate Ekle
+{% endblock %}
+
+{% block content %}
+    <section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-2">
+                    <div class="card-header">
+                        Fortigate Ekle
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content ">
+
+                            <form method="post" enctype="multipart/form-data" >
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Hostname</label>
+                                            <input maxlength="150" required name="hostname" class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Model</label>
+                                            <input maxlength="150" name="model" class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ip Adres</label>
+                                            <input maxlength="150" required name="address" class="form-control"/>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+
+                                         <div class="form-group">
+                                            <label>Seri No</label>
+                                              <input maxlength="150" name="serial" class="form-control"/>
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Versiyon</label>
+                                              <input maxlength="150" name="version" class="form-control"/>
+                                        </div>
+
+                                          <div class="form-group">
+                                            <label>Sistem Kullanıcı</label>
+                                            <select class="form-control select2" required name="systemuser" style="width: 100%">
+                                                {% for item in system_users %}
+                                                    <option value="{{ item.id }}">{{ item.name }}</option>
+                                                {% endfor %}
+                                            </select>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <button type="submit" class="btn btn-primary btn-sm"><span class="fas fa-save"></span> Kaydet </button>
+
+                                </div>
+
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

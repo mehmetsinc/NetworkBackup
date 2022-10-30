@@ -1,0 +1,89 @@
+{% extends 'pages/base/layout.html' %}
+
+{% block title %}
+Sistem Kullanıcı Listesi
+{% endblock %}
+
+{% block content %}
+
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-2">
+
+                    <div class="card-header d-flex p-0 justify-content-center align-items-center">
+                        <h3 class="card-title p-3 ">
+                            Sistem Kullanıcı Listesi
+                        </h3>
+
+                        <h3 class="card-title p-3 ">
+                            <a class="btn btn-success" href="{% url 'system_user_create' %}">Ekle</a>
+                        </h3>
+
+
+                    </div>
+
+
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content ">
+
+
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+
+                                    <th>#</th>
+                                    <th>Ad</th>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Toplam Cihaz</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in system_users %}
+
+                                    <tr>
+                                        <td>{{ item.id }}</td>
+                                        <td>{{ item.name }}</td>
+                                        <td>{{ item.username }}</td>
+                                        <td>{{ item.date }}</td>
+                                        <td>{{ item.firewall.count }}</td>
+
+                                        <td>
+                                            <div class="btn-group btn-group-toggle">
+
+                                                <a class="btn btn-primary btn-sm " href="{% url 'system_user_update_view' item.id %}">
+                                                    Güncelle
+                                                </a>
+                                                <a class="btn btn-danger btn-sm " href="{% url 'system_user_delete_view' item.id %}">
+                                                    Sil
+                                                </a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

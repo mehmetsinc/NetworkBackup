@@ -1,0 +1,55 @@
+{% extends 'pages/base/layout.html' %}
+
+{% block title %}
+{{ system_user.name }} Güncelle
+{% endblock %}
+
+{% block content %}
+    <section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-2">
+                    <div class="card-header">
+                        {{ system_user.name }} Güncelle
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content ">
+
+                              <form method="post" enctype="multipart/form-data">
+                                  {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Açıklama</label>
+                                            <input type="text" maxlength="150" required name="name" value="{{ system_user.name }}" class="form-control"/>
+
+                                        </div>
+                                        <div class="form-group">
+                                             <label>Kullanıcı Adı</label>
+                                            <input type="text" maxlength="50" required name="username" value="{{ system_user.username }}" class="form-control"/>
+                                        </div>
+                                          <div class="form-group">
+                                             <label>Parola</label>
+                                            <input type="password" maxlength="150" required name="password" value="{{ system_user.password }}" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm"><span class="fas fa-save"></span> Kaydet </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

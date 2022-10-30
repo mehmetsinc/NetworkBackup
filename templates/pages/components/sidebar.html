@@ -1,0 +1,120 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+      {% load static %}
+    <a {% url 'home' %} class="brand-link">
+
+        <span class="brand-text font-weight-light">Admin Panel</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{% static 'Admin/dist/img/user8-128x128.jpg' %}" class="img-circle elevation-2">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">Network Backup</a>
+            </div>
+        </div>
+
+
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item menu-open">
+                    <a href="{% url 'home' %}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Ana Sayfa
+
+                        </p>
+                    </a>
+                </li>
+
+
+                <li class="nav-header">Genel</li>
+                <li class="nav-item">
+                    <a href="{% url 'system_user_view' %}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Sistem Kullanıcı
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">Firewall</li>
+                <li class="nav-item">
+                    <a href="{% url 'fortigate_view' %}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Fortigate
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">Switch / Router</li>
+                <li class="nav-item">
+                    <a href="{% url 'cisco_switch_view' %}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Cisco
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'aruba_switch_view' %}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Aruba
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'extreme_switch_view' %}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Extreme
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'hp_switch_view' %}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Hp
+
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'dell_switch_view' %}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Dell
+
+                        </p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

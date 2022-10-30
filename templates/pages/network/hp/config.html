@@ -1,0 +1,82 @@
+{% extends 'pages/base/layout.html' %}
+
+{% block title %}
+{{ aruba_switch.hostname }} Config Listesi
+{% endblock %}
+
+{% block content %}
+
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-2">
+
+                    <div class="card-header d-flex p-0 justify-content-center align-items-center">
+                        <h3 class="card-title p-3 ">
+                            {{ hp_switch.hostname }} Config Listesi
+                        </h3>
+
+                    </div>
+
+
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content ">
+
+
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+
+                                    <th>#</th>
+                                    <th>Ad</th>
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Cihaz</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in hp_switch_configs %}
+
+                                    <tr>
+                                        <td>{{ item.id }}</td>
+                                        <td>{{ item.name }}</td>
+                                        <td>{{ item.date }}</td>
+                                        <td>{{ item.hpswitch.hostname }}</td>
+
+                                        <td>
+                                            <div class="btn-group btn-group-toggle">
+
+                                                <a class="btn btn-primary btn-sm " href="{% url 'hp_switch_config_detail_view' item.id %}">
+                                                    Detay
+                                                </a>
+                                                <a class="btn btn-danger btn-sm " href="{% url 'hp_switch_config_delete_view' item.id %}">
+                                                    Sil
+                                                </a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
